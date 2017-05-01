@@ -13,14 +13,14 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Tab kill
+bindsym $mod+z kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+x exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+c exec --no-startup-id i3-dmenu-desktop
 
 
 # alternatively, you can use the cursor keys:
@@ -30,7 +30,7 @@ bindsym $mod+Up move up
 bindsym $mod+Right move right
 
 # split in horizontal orientation
-bindsym $mod+z split h
+bindsym $mod+x split h
 
 # split in vertical orientation
 bindsym $mod+a split v
@@ -97,6 +97,6 @@ exec --no-startup-id parcellite
 exec --no-startup-id blueman-manager
 exec --no-startup-id google-chrome-stable
 exec --no-startup-id lxterminal
-exec --no-startup-id dolphin
+exec --no-startup-id ksysguard
 
 
