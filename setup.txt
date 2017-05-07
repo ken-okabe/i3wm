@@ -24,7 +24,7 @@ sudo mount /dev/sda1 /mnt
 #target-system nspawn
 
 pacman -R linux
-pacman -S sudo fish linux-lts wget git htop xf86-video-intel noto-fonts-cjk bluez bluez-utils unzip ark fcitx-im fcitx-configtool fcitx-mozc atom ranger nodejs npm openssh mpv mcomix transmission-qt dunst parcellite pavucontrol volumeicon network-manager-applet  xorg-server xorg-xinit i3 networkmanager gparted qt5ct dolphin  xorg-xbacklight  pulseaudio lxterminal leafpad lxappearance breeze-gtk breeze-icons blueman
+pacman -S sudo fish linux-lts wget git htop xf86-video-intel noto-fonts-cjk bluez bluez-utils unzip unrar ark fcitx-im fcitx-configtool fcitx-mozc atom ranger nodejs npm openssh mpv mcomix transmission-qt dunst parcellite pavucontrol volumeicon network-manager-applet  xorg-server xorg-xinit i3 networkmanager gparted qt5ct dolphin  xorg-xbacklight  pulseaudio lxterminal leafpad lxappearance breeze-gtk breeze-icons blueman
 
 
 export EDITOR=nano
