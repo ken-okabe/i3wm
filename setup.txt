@@ -36,7 +36,7 @@ SigLevel = Never
 Server = http://repo.archlinux.fr/$arch
 
 [repo-ck]
-Server = http://repo-ck.com/$arch
+Server = http://repo-ck.segfault.gq/$arch
 
 pacman-key -r 5EE46C4C; pacman-key --lsign-key 5EE46C4C
 
@@ -45,7 +45,7 @@ pacman -S --refresh yaourt
 
 
 pacman -R linux
-pacman -S sudo fish linux-ck wget git htop xf86-video-intel noto-fonts-cjk bluez bluez-utils unzip unrar ark fcitx-im fcitx-configtool fcitx-mozc atom ranger nodejs npm openssh mpv mcomix transmission-qt dunst parcellite pavucontrol volumeicon network-manager-applet  xorg-server xorg-xinit i3 networkmanager gparted qt5ct dolphin  xorg-xbacklight  pulseaudio lxterminal leafpad lxappearance breeze-gtk breeze-icons blueman
+pacman -S sudo fish linux-ck wget git htop xf86-video-intel noto-fonts-cjk bluez bluez-utils unzip unrar ark fcitx-im fcitx-configtool fcitx-mozc atom ranger nodejs npm openssh mpv mcomix transmission-qt dunst parcellite pavucontrol volumeicon network-manager-applet xorg-server xorg-xinit i3 networkmanager gparted qt5ct dolphin xorg-xbacklight pulseaudio lxterminal leafpad lxappearance breeze-gtk breeze-icons blueman scrot
 
 
 
