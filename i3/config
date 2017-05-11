@@ -38,11 +38,12 @@ bindsym $mod+a split v
 # enter fullscreen mode for the focused container
 bindsym $mod+space fullscreen toggle
 
+bindsym $mod+n floating toggle
+
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+v layout tabbed
 bindsym $mod+b layout toggle split
-
 
 bindsym $mod+1 exec scrot $HOME/pics/`date +%Y-%m-%d_%H:%M:%S`.png
 bindsym $mod+2 exec scrot -u $HOME/pics/`date +%Y-%m-%d_%H:%M:%S`.png
