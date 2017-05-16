@@ -11,11 +11,13 @@ general {
         interval = 1
 }
 
-order += "battery 0"
+
 order += "wireless _first_"
 order += "ethernet _first_"
 
 order += "cpu_usage"
+order += "disk /"
+order += "battery 0"
 order += "tztime local"
 
 battery 0 {
@@ -40,11 +42,7 @@ ethernet _first_ {
 }
 
 
-
-battery all {
-        format = "%status %percentage %remaining"
-}
-
+ 
 tztime local {
         format = "%Y-%m-%d %A %H:%M:%S"
 }
