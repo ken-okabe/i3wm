@@ -1,3 +1,4 @@
+
 # i3status configuration file.
 # see "man i3status" for documentation.
 
@@ -49,6 +50,34 @@ tztime local {
 
 cpu_usage {
 	format = "CPU %usage "
+}
+
+disk "/" {
+        format = "%avail"
+}
+
+wireless _first_ {
+        format_up = "W: (%quality at %essid) %ip"
+        format_down = "W: down"
+}
+
+ethernet _first_ {
+        # if you use %speed, i3status requires root privileges
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
+
+battery all {
+        format = "%status %percentage %remaining"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+        timezone = "Asia/Tokyo"
+}
+
+load {
+        format = "%1min"
 }
 
 disk "/" {
