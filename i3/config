@@ -94,10 +94,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec --no-startup-id fcitx
 exec --no-startup-id parcellite 
+exec --no-startup-id blueberry-tray
 
-exec --no-startup-id blueman-manager
-exec --no-startup-id google-chrome-stable
 exec --no-startup-id lxterminal
-exec --no-startup-id ksysguard
-
-
+exec --no-startup-id google-chrome-stable
