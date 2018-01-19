@@ -91,7 +91,7 @@ client.background       #ffffff
 
 # start up
 
-exec --no-startup-id xrandr --output eDP1 --scale 0.85x0.85
+exec --no-startup-id xrandr --output eDP1 --scale 0.9x0.9
 
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
