@@ -1,3 +1,4 @@
+
 #!/bin/sh
 # Copyright (C) 2014 Julien Bonjean <julien@bonjean.info>
 
@@ -45,18 +46,11 @@ END {
 		used=(mem_total-mem_free)/1024/1024
 		total=mem_total/1024/1024
 	}
-
-	pct=0
-	if (total > 0) {
-		pct=used/total*100
-	}
-
+	pct=used/total*100
 	# full text
 	printf("%.1fG/%.1fG (%.f%%)\n", used, total, pct)
-
 	# short text
 	printf("%.f%%\n", pct)
-
 	# color
 	if (pct > 90) {
 		print("#FF0000\n")
