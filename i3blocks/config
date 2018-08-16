@@ -82,7 +82,7 @@ interval=5
 [iface]
 #instance=wlan0
 color=#00FF00
-interval=10　
+interval=5
 
 
 # Volume indicator
@@ -107,12 +107,6 @@ label=BAT
 #label=⚡
 #instance=1
 interval=30
-
-# Date Time
-#
-[time]
-command=date '+%Y-%m-%d %H:%M:%S %A'
-interval=1
 
 # Generic media player support
 #
@@ -153,3 +147,11 @@ interval=1
 #instance=NUM
 #interval=once
 #signal=11
+
+
+# Date Time
+#
+[time]
+command=date '+%Y/%m/%d (%A) %H:%M:%S'
+interval=1
+
