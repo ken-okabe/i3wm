@@ -1,59 +1,48 @@
-#!/usr/bin/perl
-#
-# Copyright 2014 Pierre Mavro <deimos@deimos.fr>
-# Copyright 2014 Vivien Didelot <vivien@didelot.org>
-# Copyright 2014 Andreas Guldstrand <andreas.guldstrand@gmail.com>
-#
-# Licensed under the terms of the GNU GPL v3, or any later version.
+#!/bin/bash
+# Source: http://askubuntu.com/a/450136
 
-use strict;
-use warnings;
-use utf8;
-use Getopt::Long;
+URGENT_VALUE=90
 
-# default values
-my $t_warn = 50;
-my $t_crit = 80;
-my $cpu_usage = -1;
-my $decimals = 2;
+PREV_TOTAL=0
+PREV_IDLE=0
 
-sub help {
-    print "Usage: cpu_usage [-w <warning>] [-c <critical>] [-d <decimals>]\n";
-    print "-w <percent>: warning threshold to become yellow\n";
-    print "-c <percent>: critical threshold to become red\n";
-    print "-d <decimals>:  Use <decimals> decimals for percentage (default is $decimals) \n"; 
-    exit 0;
-}
+cpuFile="/tmp/.cpu"
 
-GetOptions("help|h" => \&help,
-           "w=i"    => \$t_warn,
-           "c=i"    => \$t_crit,
-           "d=i"    => \$decimals,
-);
+if [[ -f "${cpuFile}" ]]; then
+  fileCont=$(cat "${cpuFile}")
+  PREV_TOTAL=$(echo "${fileCont}" | head -n 1)
+  PREV_IDLE=$(echo "${fileCont}" | tail -n 1)
+fi
 
-# Get CPU usage
-$ENV{LC_ALL}="en_US"; # if mpstat is not run under en_US locale, things may break, so make sure it is
-open (MPSTAT, 'mpstat 1 1 |') or die;
-while (<MPSTAT>) {
-    if (/^.*\s+(\d+\.\d+)[\s\x00]?$/) {
-        $cpu_usage = 100 - $1; # 100% - %idle
-        last;
-    }
-}
-close(MPSTAT);
+CPU=(`cat /proc/stat | grep '^cpu '`) # Get the total CPU statistics.
+unset CPU[0]                          # Discard the "cpu" prefix.
+IDLE=${CPU[4]}                        # Get the idle CPU time.
 
-$cpu_usage eq -1 and die 'Can\'t find CPU information';
+# Calculate the total CPU time.
+TOTAL=0
 
-# Print short_text, full_text
-printf "%.${decimals}f%%\n", $cpu_usage;
-printf "%.${decimals}f%%\n", $cpu_usage;
+for VALUE in "${CPU[@]:0:4}"; do
+  let "TOTAL=$TOTAL+$VALUE"
+done
 
-# Print color, if needed
-if ($cpu_usage >= $t_crit) {
-    print "#FF0000\n";
-    exit 33;
-} elsif ($cpu_usage >= $t_warn) {
-    print "#FFFC00\n";
-}
+if [[ "${PREV_TOTAL}" != "" ]] && [[ "${PREV_IDLE}" != "" ]]; then
+  # Calculate the CPU usage since we last checked.
+  let "DIFF_IDLE=$IDLE-$PREV_IDLE"
+  let "DIFF_TOTAL=$TOTAL-$PREV_TOTAL"
+  let "DIFF_USAGE=(1000*($DIFF_TOTAL-$DIFF_IDLE)/$DIFF_TOTAL+5)/10"
+  echo "${DIFF_USAGE}%"
+  echo "${DIFF_USAGE}%"
+  echo ""
+else
+  echo "?"
+  echo "?"
+  echo ""
+fi
 
-exit 0;
+# Remember the total and idle CPU times for the next check.
+echo "${TOTAL}" > "${cpuFile}"
+echo "${IDLE}" >> "${cpuFile}"
+
+if [[ "${DIFF_USAGE}" -gt 0 ]] && [[ "${DIFF_USAGE}" -gt "${URGENT_VALUE}" ]]; then
+  exit 33
+fi
