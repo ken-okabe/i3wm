@@ -9,7 +9,7 @@ font pango:Terminus Bold Semi-Condensed 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec lxterminal
+bindsym $mod+Return exec terminator
 
 # kill focused window
 bindsym $mod+x kill
@@ -98,5 +98,5 @@ exec --no-startup-id fcitx
 exec --no-startup-id clipit 
 exec --no-startup-id blueberry-tray
 
-exec --no-startup-id lxterminal
+exec --no-startup-id terminator
 exec --no-startup-id onboard
