@@ -1,4 +1,6 @@
 uname -a
+setxkbmap -option 'ctrl:nocaps,shift:both_capslock_cancel'
+
 #wmctrl -xa terminator.Terminator || terminator
 # set -U fish_prompt_pwd_dir_length 0
 # omf install fox
@@ -15,22 +17,17 @@ alias u="yaourt -Syu --noconfirm"
 alias uu="yaourt -Syua --noconfirm"
 alias i="yaourt -Syu; yaourt -S --noconfirm $1"
 
-
 alias h="htop"
 
 
-alias ss='git add -A -v; git commit -m "commit"'
+alias ss='git add -A -v; git commit -m "Update"'
 alias sp="ss; git push origin master"
 
 
-#apm install esformatter file-icons language-babel linter linter-eslint minimap
-
-
-alias c="code-insiders  ./"
+alias c="code ./"
 
 alias e="electron ."
- 
-
+alias a="sh ~/w/AsciidocFX/AsciidocFX"
 
 
 
