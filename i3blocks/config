@@ -28,14 +28,27 @@ command=/usr/lib/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
-[wifi]
-#instance=wlp3s0
-interval=1　
+
+
+
+# Network interface monitoring
+#
+# If the instance is not specified, use the interface used for default route.
+# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 
 [bandwidth]
 #instance=eth0
 interval=1
+[iface]
+#instance=wlan0
+color=#00FF00
+interval=5
+[wifi]
+#instance=wlp3s0
+interval=1　
 
+
+separator=true
 
 # CPU usage
 #
@@ -46,10 +59,11 @@ command=~/.config/i3blocks/cpu_usage
 label=CPU
 interval=1
 min_width=CPU: 100.00%
-#separator=false
+separator=false
 
 #[load_average]
 #interval=1
+
 
 # Memory usage
 #
@@ -59,9 +73,9 @@ command=~/.config/i3blocks/memory
 label=MEM　
 interval=1
 
-#[memory]
-#label=SWAP
-#instance=swap　
+[swap]
+#command=~/.config/i3blocks/memory
+#label=SWAP 
 #interval=1
 
 # Disk usage
@@ -75,15 +89,6 @@ label=HOME
 #instance=/mnt/data
 interval=5
 
-# Network interface monitoring
-#
-# If the instance is not specified, use the interface used for default route.
-# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
-[iface]
-#instance=wlan0
-color=#00FF00
-interval=5
-
 
 # Volume indicator
 #
@@ -92,11 +97,11 @@ interval=5
 # See the script for details.
 [volume]
 #label=VOL
-label=♪
-instance=Master
+#label=Sound
+#instance=Master
 #instance=PCM
-interval=once
-signal=10
+#interval=once
+#signal=10
 
 
 # Battery indicator
