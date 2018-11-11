@@ -27,7 +27,9 @@ alias sp="ss; git push origin master"
 alias c="code ./"
 
 alias e="electron ."
-alias a="sh ~/w/AsciidocFX/AsciidocFX"
+alias a="i3-msg 'exec sh /home/ken/w/AsciidocFX/AsciidocFX'"
+
+ 
 
 
 
