@@ -99,4 +99,3 @@ exec --no-startup-id volumeicon
 exec --no-startup-id terminal;
 exec --no-startup-id nemo;
 
-
