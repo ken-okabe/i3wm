@@ -1,13 +1,10 @@
 uname -a
 setxkbmap -option 'ctrl:nocaps,shift:both_capslock_cancel'
+setxkbmap -option 'ctrl:ralt_rctrl'
 
 #wmctrl -xa terminator.Terminator || terminator
 # set -U fish_prompt_pwd_dir_length 0
 # omf install fox
-
-#s rsync -axAXH --numeric-ids 
-#--exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} 
-#--info=progress2 / /mnt/arch-20170301/
 
 alias l="ls -la"
 alias s="sudo"
@@ -25,9 +22,8 @@ alias sp="ss; git push origin master"
 
 
 alias c="code ./"
-
 alias e="electron ."
-alias a="i3-msg 'exec sh /home/ken/w/AsciidocFX/AsciidocFX'"
+
 
  
 
