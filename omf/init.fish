@@ -6,6 +6,9 @@ setxkbmap -option 'ctrl:ralt_rctrl'
 # set -U fish_prompt_pwd_dir_length 0
 # omf install fox
 
+# alsactl restore -P
+
+
 alias l="ls -la"
 alias s="sudo"
 alias m="micro"
