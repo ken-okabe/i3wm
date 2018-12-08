@@ -10,6 +10,10 @@ Section "InputClass"
 EndSection
 ```
 
+┌[ken@ken-pc]
+└> s su
+[ken-pc blogger]# echo 2 > /sys/module/hid_apple/parameters/fnmode
+[ken-pc blogger]# exit
 
 
 
